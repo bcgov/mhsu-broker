@@ -1,0 +1,19 @@
+div#leftMenu{
+    width: 24%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+div#tablePortion{
+    width: 75%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+span.twitter-typeahead{
+    vertical-align: top;
+}
