@@ -1,0 +1,12 @@
+{
+	"fieldmap": [{
+		"fieldName": "PROJECT_NAME",
+		"metaName": "name"
+	}, {
+		"fieldName": "PROJECT_NAME",
+		"metaName": "dc.name"
+	}, {
+		"fieldName": "PROJECT_DESCRIPTION",
+		"metaName": "dc.description"
+	}]
+}

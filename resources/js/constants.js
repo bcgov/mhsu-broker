@@ -1,5 +1,10 @@
 var FIRST_RECORD_PARAM = "first";
 var LOCAL_METAPAGE = "/meta.html";
+var CONCORDANCE_MAP_FILE = "/js/concordance.json";
+var CONCORDANCE_MAP_FIELD = "fieldmap";
+var CONCORDANCE_MAP_FIELDNAME_FIELD = "fieldName";
+var CONCORDANCE_MAP_METAFIELDNAME_FIELD = "metaName";
+var USE_CONCORDANCE_MAP = true; // note that EVEN if this is false concordance.json MUST exist AND be valid JSON, if it's false it uses the old fieldname matches style
 
 var API_QUERY_FIELD = "q";
 var API_FILTER_FIELD = "filters";
