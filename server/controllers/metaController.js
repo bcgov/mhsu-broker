@@ -57,6 +57,7 @@ metaController.prototype.meta = function(responseObject, parameters){
         };
     
     request(reqOptions, function(error, response, body){
+        responseObject.writeHead(200, {'Content-Type': 'text/html'});
         var fieldNames = JSON.parse(body);
         var fieldValues = fieldNames;
         
