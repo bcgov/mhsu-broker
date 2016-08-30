@@ -13,6 +13,25 @@ function fieldMatch(fieldName){
     return (fieldName.indexOf(FIELD_PREFIX) == 0);
 }
 
+//this is used with the concordance map functionality to build headers.
+function getMetaPairs(fieldName, fieldValue, concordanceMap) {
+    var metaPairs = [];
+    
+    for (var i=0; i<concordanceMap.length; i++){
+        
+        if (concordanceMap[i][CONCORDANCE_MAP_FIELDNAME_FIELD] == fieldName) {
+            var values = getFieldValues(fieldValue);
+            for (var j=0; j<values.length; j++) {
+                var metaObj = {name: concordanceMap[i][CONCORDANCE_MAP_METAFIELDNAME_FIELD], value: values[j]};
+                metaPairs.push(metaObj);   
+            }
+        }
+        
+    }
+    
+    return metaPairs;
+}
+
 // Read a page's GET URL variables and return them as an associative array.
 function getURLVars(){
     var vars = [], hash;
