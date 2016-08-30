@@ -37,6 +37,7 @@ indexController.prototype.index = function(responseObject, parameters){
         };
     
     request(reqOptions, function(error, response, body){
+        responseObject.writeHead(200, {'Content-Type': 'text/html'});
         logger.debug("--Index search url results--");
         if (typeOf(response.statusCode) === "undefined") {
             responseObject.write("Error getting information from the api");
