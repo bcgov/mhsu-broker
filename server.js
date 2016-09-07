@@ -10,7 +10,7 @@ var crawlDispatcher = require('./server/dispatcher.js');
 
 //add robots.txt
 var robots = require('robots.txt')
-app.use(robots(__dirname + '/robots.txt'))
+app.use(robots(__dirname + './robots.txt'))
 
 
 //For all your static (js/css/images/etc.) set the directory name (relative path).
