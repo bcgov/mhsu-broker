@@ -1,19 +1,27 @@
 {
   "name": "API_CrawlPages",
   "version": "1.0.0",
-  "description": "",
+  "description": "Serve BCDC resources to GSA",
   "main": "server.js",
+  "author": "Brandon Sharratt",
+  "license": "Apache-2.0",
+  "contributors": [{
+     "name": "Leo Lou",
+	 "email": "leo.lou@gov.bc.ca"
+	 }],
+  "repository": {
+    "type": "git",
+	"url": "https://gogs.data.gov.bc.ca/bcdc/bcdc-gsa-broker"
+	},
   "dependencies": {
     "httpdispatcher": "^1.0.0",
     "request": "^2.74.0",
     "typeof": "^1.0.0",
-	"robots": "robots.txt"
+    "robots.txt": "^1.1.0"	
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
-  },
-  "author": "Brandon Sharratt",
-  "license": "CC3"
+  }
 }
