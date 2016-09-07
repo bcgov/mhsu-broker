@@ -1,15 +1,3 @@
-// {
-// 	"fieldmap": [{
-// 		"fieldName": "PROJECT_NAME",
-// 		"metaName": "name"
-// 	}, {
-// 		"fieldName": "PROJECT_NAME",
-// 		"metaName": "dc.name"
-// 	}, {
-// 		"fieldName": "PROJECT_DESCRIPTION",
-// 		"metaName": "dc.description"
-// 	}]
-// }
 
 {"fieldmap":[{"fieldName":"MH_GUID","metaName":"title"},{"fieldName":"RG_NAME","metaName":"RG_NAME"},{"fieldName":"SV_DESCRIPTION","metaName":"dc.description"},{"fieldName":"SV_DESCRIPTION","metaName":"description"},{"fieldName":"MHSU_KEYWORD","metaName":"keyword"},{"fieldName":"SV_NAME","metaName":"dc.description"},{"fieldName":"PHONE_NUMBER","metaName":"PHONE_NUMBER"},{"fieldName":"WEBSITE","metaName":"WEBSITE"},{"fieldName":"EMAIL_ADDRESS","metaName":"EMAIL_ADDRESS"},{"fieldName":"MHSU_GUID","metaName":"mhrecorduid"},{"fieldName":"WHEELCHAIR_ACCESSIBLE","metaName":"WHEELCHAIR_ACCESSIBLE"},{"fieldName":"LANGUAGE","metaName":"LANGUAGE"},{"fieldName":"HOURS","metaName":"HOURS"},{"fieldName":"STREET_NUMBER","metaName":"STREET_NUMBER"},{"fieldName":"CITY","metaName":"CITY"},{"fieldName":"PROVINCE","metaName":"PROVINCE"},{"fieldName":"POSTAL_CODE","metaName":"POSTAL_CODE"},{"fieldName":"LATITUDE","metaName":"LATITUDE"},{"fieldName":"LONGITUDE","metaName":"LONGITUDE"},{"fieldName":"MHSU_TAG_AUDIENCE","metaName":"mentalHealth_mentalHealthAudience"},{"fieldName":"MHSU_TAG_TOPIC","metaName":"mentalHealth_mentalHealthTopic"},{"fieldName":"CITY","metaName":"mentalHealth_mentalHealthCities"}]}
 

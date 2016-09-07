@@ -21,7 +21,7 @@ var API_METADATA_QUERY_PARAMS = {"resource_id": "b12cd4cc-b58b-4079-b630-a20b6df
 var URL_QUERY_PARAM_FIELDS = {"_id": "_id"};
 var API_METADATA_RESULT_FIELDS_FIELD = ["result", "fields"];
 var API_METADATA_RESULT_FIELD_VALUES_FIELD = ["result", "records", 0];
-var URL_TITLE_FIELD = "PROJECT_NAME";
+var URL_TITLE_FIELD = "RG_NAME";
 var API_FILTER_FIELD = "filters";
 var RECORD_FIELD_NAME_FIELD = "id";
 
