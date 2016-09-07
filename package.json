@@ -16,8 +16,7 @@
   "dependencies": {
     "httpdispatcher": "^1.0.0",
     "request": "^2.74.0",
-    "typeof": "^1.0.0",
-    "robots.txt": "^1.1.0"	
+    "typeof": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
