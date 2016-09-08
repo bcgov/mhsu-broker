@@ -15,5 +15,5 @@ RUN chown -R broker:0 /app && chmod -R 770 /app
 RUN apk del --purge alpine-sdk  
 
 USER broker
-EXPOSE 3000
+EXPOSE 8080
 CMD node server.js
