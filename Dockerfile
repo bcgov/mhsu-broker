@@ -2,8 +2,7 @@ FROM alpine:3.4
 MAINTAINER leo.lou@gov.bc.ca
 
 RUN apk update \
-  && apk add alpine-sdk nodejs \
-  && npm install -g browserify bower grunt-cli serve
+  && apk add alpine-sdk nodejs
 
 RUN mkdir -p /app
   
@@ -16,4 +15,4 @@ RUN apk del --purge alpine-sdk
 
 USER broker
 EXPOSE 8080
-CMD node server.js
+CMD npm start
