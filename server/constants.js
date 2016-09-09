@@ -35,7 +35,7 @@ constants.prototype.API_METADATA_QUERY_PARAMS = (process.env.API_METADATA_QUERY_
 constants.prototype.URL_QUERY_PARAM_FIELDS = (process.env.URL_QUERY_PARAM_FIELDS) ? process.env.URL_QUERY_PARAM_FIELDS : {"_id": "_id"};
 constants.prototype.API_METADATA_RESULT_FIELDS_FIELD = (process.env.API_METADATA_RESULT_FIELDS_FIELD) ? process.env.API_METADATA_RESULT_FIELDS_FIELD : ["result", "fields"];
 constants.prototype.API_METADATA_RESULT_FIELD_VALUES_FIELD = (process.env.API_METADATA_RESULT_FIELD_VALUES_FIELD) ? process.env.API_METADATA_RESULT_FIELD_VALUES_FIELD : ["result", "records", 0];
-constants.prototype.URL_TITLE_FIELD = (process.env.URL_TITLE_FIELD) ? process.env.URL_TITLE_FIELD : "RG_NAME";
+constants.prototype.URL_TITLE_FIELD = (process.env.URL_TITLE_FIELD) ? process.env.URL_TITLE_FIELD : "SV_NAME";
 constants.prototype.API_FILTER_FIELD = (process.env.API_FILTER_FIELD) ? process.env.API_FILTER_FIELD : "filters";
 constants.prototype.RECORD_FIELD_NAME_FIELD = (process.env.RECORD_FIELD_NAME_FIELD) ? process.env.RECORD_FIELD_NAME_FIELD : "id";
 
