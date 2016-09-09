@@ -13,7 +13,6 @@ metaController.prototype = {
 }
 
 metaController.prototype.meta = function(responseObject, parameters){
-    responseObject.write('<!DOCTYPE html>');
     var ids = constants.URL_QUERY_PARAM_FIELDS;
     var id_keys = Object.keys(ids);
     
@@ -58,6 +57,7 @@ metaController.prototype.meta = function(responseObject, parameters){
     
     request(reqOptions, function(error, response, body){
         responseObject.writeHead(200, {'Content-Type': 'text/html'});
+        responseObject.write('<!DOCTYPE html>');
         var fieldNames = JSON.parse(body);
         var fieldValues = fieldNames;
         
