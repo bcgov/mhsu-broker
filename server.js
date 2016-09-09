@@ -3,6 +3,7 @@ var http = require('http');
 var https = require('https');
 var dispatcher = require('httpdispatcher');
 var typeOf = require('typeof');
+var env = require('./server/env.js');
 
 var constants = require('./server/constants.js');
 var logger = require('./server/logger.js');

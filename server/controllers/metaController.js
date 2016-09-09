@@ -2,9 +2,8 @@ var request = require('request');
 var typeOf = require('typeof');
 
 var logger = require('../logger.js');
-var constants = require ('../constants.js');
 var utils = require('../utils.js');
-
+var constants = require('../constants.js');
 var metaController = function(){  
 };
 
@@ -28,7 +27,7 @@ metaController.prototype.meta = function(responseObject, parameters){
         ids[id_keys[i]] = (typeOf(parameters[id_keys[i]]) !== "undefined") ? parameters[id_keys[i]] : null;
     }
     
-    if (constants.USE_CONCORDANCE_MAP){
+    if (constants.USE_CONCORDANCE_MAP == true){
         concordance = require('../../resources/js/concordance.json');
         if ((typeOf(concordance[constants.CONCORDANCE_MAP_FIELD]) === "undefined")) {
             responseObject.write("Error getting concordance map");
@@ -37,7 +36,7 @@ metaController.prototype.meta = function(responseObject, parameters){
         }
     }
     
-    if (constants.USE_CONCORDANCE_MAP) {
+    if (constants.USE_CONCORDANCE_MAP == true) {
         concordanceMap = concordance[constants.CONCORDANCE_MAP_FIELD];
     }
     
@@ -93,7 +92,7 @@ metaController.prototype.meta = function(responseObject, parameters){
             var fieldName = fieldNames[i][constants.RECORD_FIELD_NAME_FIELD];
             var fieldValue = fieldValues[fieldName];
             
-            if (constants.USE_CONCORDANCE_MAP) {
+            if (constants.USE_CONCORDANCE_MAP == true) {
                 var metaPairs = utils.getMetaPairs(fieldName, fieldValue, concordanceMap);
                 
                 for (var j=0; j<metaPairs.length; j++){

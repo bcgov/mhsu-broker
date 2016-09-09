@@ -17,7 +17,7 @@ dispatcher.prototype.dispatch = function(request, response){
     
     var requestUrl = this.request.url;
     
-    if ( (requestUrl.indexOf("css") !== -1) || (requestUrl.indexOf("lib") !== -1) || (requestUrl.indexOf("js") !== -1) || (requestUrl.indexOf("search.html") !== -1) ){
+    if ( (requestUrl.indexOf("css") !== -1) || (requestUrl.indexOf("lib") !== -1) || (requestUrl.indexOf("js") !== -1) || (requestUrl.indexOf("search.html") !== -1) || (requestUrl.indexOf(".txt") !== -1) ){
         var filePath = 'resources' + requestUrl;
         logger.debug("Static file requested: " + filePath);
         fs.readFile(filePath, function(err, content){
