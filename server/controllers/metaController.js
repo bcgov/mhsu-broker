@@ -96,7 +96,7 @@ metaController.prototype.meta = function(responseObject, parameters){
                 var metaPairs = utils.getMetaPairs(fieldName, fieldValue, concordanceMap);
                 
                 for (var j=0; j<metaPairs.length; j++){
-                    headTag += "<meta name=\"" + metaPairs[j]["name"] + "\" value=\"" + metaPairs[j]["value"] + "\">";
+                    headTag += "<meta name=\"" + metaPairs[j]["name"] + "\" content=\"" + metaPairs[j]["value"] + "\">";
                 }
                 
                 if (metaPairs.length > 0){    
