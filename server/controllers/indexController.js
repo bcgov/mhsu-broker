@@ -14,8 +14,6 @@ indexController.prototype = {
 }
 
 indexController.prototype.index = function(responseObject, parameters){
-    responseObject.write('<!DOCTYPE html><html><head>');
-    responseObject.write('<meta charset="UTF-8" /></head><body>');
     var offset=0;
     if (typeOf(parameters[constants.FIRST_RECORD_PARAM]) !== "undefined"){
         offset = parseInt(parameters[constants.FIRST_RECORD_PARAM]);
@@ -39,6 +37,8 @@ indexController.prototype.index = function(responseObject, parameters){
         };
     
     request(reqOptions, function(error, response, body){
+        responseObject.write('<!DOCTYPE html><html><head>');
+        responseObject.write('<meta charset="UTF-8" /></head><body>');
         responseObject.writeHead(200, {'Content-Type': 'text/html'});
         logger.debug("--Index search url results--");
         if (typeOf(response.statusCode) === "undefined") {
