@@ -1,4 +1,4 @@
-var typeOf = require('typeOf');
+var typeOf = require('typeof');
 var fs = require('fs');
 
 var env = function(){
