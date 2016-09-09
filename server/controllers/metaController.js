@@ -108,7 +108,7 @@ metaController.prototype.meta = function(responseObject, parameters){
                 if (utils.fieldMatch(fieldName)) {
                     var values = utils.getFieldValues(fieldValue);
                     for (var j=0; j<values.length; j++){
-                        headTag += "<meta name=\"" + fieldName + "\" value=\"" + values[j] + "\">";
+                        headTag += "<meta name=\"" + fieldName + "\" content=\"" + values[j] + "\">";
                     }
                     
                     bodyTag += "<div>" + fieldName + ": " + fieldValue + "</div>";
