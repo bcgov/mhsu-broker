@@ -14,6 +14,8 @@ indexController.prototype = {
 }
 
 indexController.prototype.index = function(responseObject, parameters){
+    responseObject.write('<!DOCTYPE html><html><head>');
+    responseObject.write('<meta charset="UTF-8">');
     var offset=0;
     if (typeOf(parameters[constants.FIRST_RECORD_PARAM]) !== "undefined"){
         offset = parseInt(parameters[constants.FIRST_RECORD_PARAM]);
@@ -93,7 +95,8 @@ indexController.prototype.index = function(responseObject, parameters){
            responseObject.write("<a href=\"/?"+constants.FIRST_RECORD_PARAM + "=" + nextRecord + "\">Next</a>");
         }
         
-       responseObject.end(); 
+        responseObject.write("</body></html>");
+        responseObject.end(); 
     });
     
 }
