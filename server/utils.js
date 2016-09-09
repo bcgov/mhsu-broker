@@ -6,7 +6,7 @@ var utils = function() {
 //used on meta page to break multivalued fields based on a delimiter to make multiple meta tags;
 //fieldValue is assumed string
 utils.prototype.getFieldValues = function(fieldValue) {
-    return (typeOf(fieldValue) !== "undefined") ? fieldValue.split(constants.MULTI_VALUE_SEPARATOR) : [];
+    return (typeOf(fieldValue) === "string") ? fieldValue.split(constants.MULTI_VALUE_SEPARATOR) : [];
 }
 
 //used on meta page to see if the field matches the required prefix to be shown/added to meta
