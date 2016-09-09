@@ -15,7 +15,7 @@ indexController.prototype = {
 
 indexController.prototype.index = function(responseObject, parameters){
     responseObject.write('<!DOCTYPE html><html><head>');
-    responseObject.write('<meta charset="UTF-8" /></head>');
+    responseObject.write('<meta charset="UTF-8" /></head><body>');
     var offset=0;
     if (typeOf(parameters[constants.FIRST_RECORD_PARAM]) !== "undefined"){
         offset = parseInt(parameters[constants.FIRST_RECORD_PARAM]);
