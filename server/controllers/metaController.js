@@ -117,7 +117,7 @@ metaController.prototype.meta = function(responseObject, parameters){
             }
         }
         bodyTag += "</body>";
-        headTag += "<meta charset=\"UTF-8\"></head>";
+        headTag += "<meta charset=\"UTF-8\" /></head>";
         html += headTag + bodyTag + "</html>";
         responseObject.write(html);
         responseObject.end();
