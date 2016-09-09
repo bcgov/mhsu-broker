@@ -96,7 +96,7 @@ metaController.prototype.meta = function(responseObject, parameters){
                 var metaPairs = utils.getMetaPairs(fieldName, fieldValue, concordanceMap);
                 
                 for (var j=0; j<metaPairs.length; j++){
-                    headTag += "<meta name=\"" + metaPairs[j]["name"] + "\" value=\"" + metaPairs[j]["value"] + "\">";
+                    headTag += "<meta name=\"" + metaPairs[j]["name"] + "\" content=\"" + metaPairs[j]["value"] + "\">";
                 }
                 
                 if (metaPairs.length > 0){    
@@ -108,7 +108,7 @@ metaController.prototype.meta = function(responseObject, parameters){
                 if (utils.fieldMatch(fieldName)) {
                     var values = utils.getFieldValues(fieldValue);
                     for (var j=0; j<values.length; j++){
-                        headTag += "<meta name=\"" + fieldName + "\" value=\"" + values[j] + "\">";
+                        headTag += "<meta name=\"" + fieldName + "\" content=\"" + values[j] + "\">";
                     }
                     
                     bodyTag += "<div>" + fieldName + ": " + fieldValue + "</div>";
