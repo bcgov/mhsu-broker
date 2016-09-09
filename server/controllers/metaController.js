@@ -57,7 +57,6 @@ metaController.prototype.meta = function(responseObject, parameters){
     
     request(reqOptions, function(error, response, body){
         responseObject.writeHead(200, {'Content-Type': 'text/html'});
-        responseObject.write('<!DOCTYPE html>');
         var fieldNames = JSON.parse(body);
         var fieldValues = fieldNames;
         
@@ -86,8 +85,8 @@ metaController.prototype.meta = function(responseObject, parameters){
         }
         
         responseObject.writeHead(200, {"Content-Type" : "text/html"});
-        var html = "<html>";
-        var headTag = "<head>";
+        var html = "<!DOCTYPE html><html>";
+        var headTag = "<head><title></title>";
         var bodyTag = "<body>";
         for (var i=0; i<fieldNames.length; i++){
             var fieldName = fieldNames[i][constants.RECORD_FIELD_NAME_FIELD];
