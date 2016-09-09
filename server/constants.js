@@ -24,18 +24,18 @@ constants.prototype.API_QUERY_FIELD = (process.env.API_QUERY_FIELD) ? process.en
 constants.prototype.API_FILTER_FIELD = (process.env.API_FILTER_FIELD) ? process.env.API_FILTER_FIELD : "filters";
 
 constants.prototype.API_SEARCH_ROOT = (process.env.API_SEARCH_ROOT) ? process.env.API_SEARCH_ROOT : "https://catalogue.data.gov.bc.ca/api/action/datastore_search";
-constants.prototype.API_SEARCH_QUERY_PARAMS = (process.env.API_SEARCH_QUERY_PARAMS) ? process.env.API_SEARCH_QUERY_PARAMS : {"resource_id": "0a10bfbd-c2d7-4ab0-9b97-dd5bf1c861e3"};
+constants.prototype.API_SEARCH_QUERY_PARAMS = (process.env.API_SEARCH_QUERY_PARAMS) ? process.env.API_SEARCH_QUERY_PARAMS : {"resource_id": "9922eb53-cda2-45ee-96c1-95aa49eb824a"};
 constants.prototype.API_SEARCH_LIMIT_PARAM = (process.env.API_SEARCH_LIMIT_PARAM) ? process.env.API_SEARCH_LIMIT_PARAM : "limit";
 constants.prototype.API_SEARCH_DEFAULT_LIMIT = (process.env.API_SEARCH_DEFAULT_LIMIT) ? process.env.API_SEARCH_DEFAULT_LIMIT : 100;
 constants.prototype.API_SEARCH_RESULT_FIELD = (process.env.API_SEARCH_RESULT_FIELD) ? process.env.API_SEARCH_RESULT_FIELD : ["result", "records"];
 constants.prototype.API_SEARCH_RESULT_FIELD_DTABLE_SRC = (process.env.API_SEARCH_RESULT_FIELD_DTABLE_SRC) ? process.env.API_SEARCH_RESULT_FIELD_DTABLE_SRC : "results";
 
 constants.prototype.API_METADATA_ROOT = (process.env.API_METADATA_ROOT) ? process.env.API_METADATA_ROOT : "https://catalogue.data.gov.bc.ca/api/action/datastore_search";
-constants.prototype.API_METADATA_QUERY_PARAMS = (process.env.API_METADATA_QUERY_PARAMS) ? process.env.API_METADATA_QUERY_PARAMS : {"resource_id": "0a10bfbd-c2d7-4ab0-9b97-dd5bf1c861e3"};
+constants.prototype.API_METADATA_QUERY_PARAMS = (process.env.API_METADATA_QUERY_PARAMS) ? process.env.API_METADATA_QUERY_PARAMS : {"resource_id": "9922eb53-cda2-45ee-96c1-95aa49eb824a"};
 constants.prototype.URL_QUERY_PARAM_FIELDS = (process.env.URL_QUERY_PARAM_FIELDS) ? process.env.URL_QUERY_PARAM_FIELDS : {"_id": "_id"};
 constants.prototype.API_METADATA_RESULT_FIELDS_FIELD = (process.env.API_METADATA_RESULT_FIELDS_FIELD) ? process.env.API_METADATA_RESULT_FIELDS_FIELD : ["result", "fields"];
 constants.prototype.API_METADATA_RESULT_FIELD_VALUES_FIELD = (process.env.API_METADATA_RESULT_FIELD_VALUES_FIELD) ? process.env.API_METADATA_RESULT_FIELD_VALUES_FIELD : ["result", "records", 0];
-constants.prototype.URL_TITLE_FIELD = (process.env.URL_TITLE_FIELD) ? process.env.URL_TITLE_FIELD : "RG_NAME";
+constants.prototype.URL_TITLE_FIELD = (process.env.URL_TITLE_FIELD) ? process.env.URL_TITLE_FIELD : "SV_NAME";
 constants.prototype.API_FILTER_FIELD = (process.env.API_FILTER_FIELD) ? process.env.API_FILTER_FIELD : "filters";
 constants.prototype.RECORD_FIELD_NAME_FIELD = (process.env.RECORD_FIELD_NAME_FIELD) ? process.env.RECORD_FIELD_NAME_FIELD : "id";
 
