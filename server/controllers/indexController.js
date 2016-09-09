@@ -37,6 +37,8 @@ indexController.prototype.index = function(responseObject, parameters){
         };
     
     request(reqOptions, function(error, response, body){
+        responseObject.write('<!DOCTYPE html><html><head>');
+        responseObject.write('<meta charset="UTF-8" /></head><body>');
         responseObject.writeHead(200, {'Content-Type': 'text/html'});
         logger.debug("--Index search url results--");
         if (typeOf(response.statusCode) === "undefined") {
@@ -93,7 +95,8 @@ indexController.prototype.index = function(responseObject, parameters){
            responseObject.write("<a href=\"/?"+constants.FIRST_RECORD_PARAM + "=" + nextRecord + "\">Next</a>");
         }
         
-       responseObject.end(); 
+        responseObject.write("</body></html>");
+        responseObject.end(); 
     });
     
 }
