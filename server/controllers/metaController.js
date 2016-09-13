@@ -86,7 +86,7 @@ metaController.prototype.meta = function(responseObject, parameters){
         
         responseObject.writeHead(200, {"Content-Type" : "text/html"});
         var html = "<!DOCTYPE html><html>";
-        var headTag = "<head><title></title>";
+        var headTag = "<head><title>Metadata</title><meta charset=\"UTF-8\" />";
         var bodyTag = "<body>";
         for (var i=0; i<fieldNames.length; i++){
             var fieldName = fieldNames[i][constants.RECORD_FIELD_NAME_FIELD];
@@ -116,7 +116,7 @@ metaController.prototype.meta = function(responseObject, parameters){
             }
         }
         bodyTag += "</body>";
-        headTag += "<meta charset=\"UTF-8\" /></head>";
+        headTag += "</head>";
         html += headTag + bodyTag + "</html>";
         responseObject.write(html);
         responseObject.end();
