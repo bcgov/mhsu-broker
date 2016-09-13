@@ -1,4 +1,5 @@
 var constants = require('./constants.js');
+var logger = require('./logger.js');
 var typeOf = require('typeof');
 var utils = function() {
 }
