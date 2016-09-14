@@ -86,11 +86,16 @@ metaController.prototype.meta = function(responseObject, parameters){
         
         responseObject.writeHead(200, {"Content-Type" : "text/html"});
         var html = "<!DOCTYPE html><html>";
-        var headTag = "<head><title>Metadata</title><meta charset=\"UTF-8\" />";
+        var title = constants.METADATA_TITLE_FIELD_OR_CONSTANT;
+        var headTag = "";
         var bodyTag = "<body>";
         for (var i=0; i<fieldNames.length; i++){
             var fieldName = fieldNames[i][constants.RECORD_FIELD_NAME_FIELD];
             var fieldValue = fieldValues[fieldName];
+            
+            if (fieldName == constants.METADATA_TITLE_FIELD_OR_CONSTANT) {
+                title = fieldValue;
+            }
             
             if (constants.USE_CONCORDANCE_MAP == true) {
                 var metaPairs = utils.getMetaPairs(fieldName, fieldValue, concordanceMap);
@@ -116,7 +121,7 @@ metaController.prototype.meta = function(responseObject, parameters){
             }
         }
         bodyTag += "</body>";
-        headTag += "</head>";
+        headTag = "<head><title>" + title + "</title><meta charset=\"UTF-8\" />" + headTag + "</head>";
         html += headTag + bodyTag + "</html>";
         responseObject.write(html);
         responseObject.end();
