@@ -15,4 +15,4 @@ RUN apk del --purge alpine-sdk
 
 USER broker
 EXPOSE 8080
-CMD npm start $NODE_ENV
+CMD npm start
