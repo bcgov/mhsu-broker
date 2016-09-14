@@ -39,7 +39,7 @@ indexController.prototype.index = function(responseObject, parameters){
     request(reqOptions, function(error, response, body){
         responseObject.writeHead(200, {'Content-Type': 'text/html'});
         responseObject.write('<!DOCTYPE html><html><head>');
-        responseObject.write('<title></title><meta charset="UTF-8" /></head><body>');
+        responseObject.write('<title>'+constants.INDEX_TITLE+'</title><meta charset="UTF-8" /></head><body>');
         
         logger.debug("--Index search url results--");
         if (typeOf(response.statusCode) === "undefined") {
