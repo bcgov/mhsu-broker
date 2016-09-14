@@ -27,7 +27,7 @@ var RECORD_FIELD_NAME_FIELD = "id";
 
 //NOTE THE FUNCTION TO CHECK IS IN UTILS.JS
 var FIELD_PREFIX = "PROJECT_";
-var MULTI_VALUE_SEPARATOR = ", ";
+var MULTI_VALUE_SEPARATOR = "| ";
 
 //var TYPEAHEAD_FIELD_VALUE = "";
 var TYPEAHEAD_DELAY = 1000; //ms == 1 second //note this affects query on the database so leave this even if disabling typeahead
