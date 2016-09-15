@@ -11,3 +11,6 @@ Then run the server in one of the 2 ways (note it does not include the .json ext
 NODE_ENV=dev node server.js
 OR
 node server.js dev
+
+For a demo see:
+http://gsa2bcdc.pathfinder.gov.bc.ca/
