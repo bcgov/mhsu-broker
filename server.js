@@ -1,7 +1,9 @@
 //Lets require/import the HTTP module
 var http = require('http');
 var https = require('https');
-var dispatcher = require('httpdispatcher');
+//var dispatcher = require('httpdispatcher');
+var HttpDispatcher = require('httpdispatcher');
+var dispatcher = new HttpDispatcher();
 var typeOf = require('typeof');
 var env = require('./server/env.js');
 
