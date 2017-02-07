@@ -10,7 +10,7 @@ var logger = require('./server/logger.js');
 var crawlDispatcher = require('./server/dispatcher.js');
 
 //For all your static (js/css/images/etc.) set the directory name (relative path).
-dispatcher.setStaticDirname('.');
+#dispatcher.setStaticDirname('.');
 dispatcher.setStatic('resources');
 
 dispatcher.onError(function(request, response){
