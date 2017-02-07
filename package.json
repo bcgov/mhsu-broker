@@ -11,7 +11,7 @@
 	 }],
   "repository": {
     "type": "git",
-	"url": "https://gogs.data.gov.bc.ca/bcdc/bcdc-gsa-broker"
+	"url": "https://gogs.data.gov.bc.ca/bcdc/mhsu-test"
 	},
   "dependencies": {
     "httpdispatcher": "^1.0.0",
