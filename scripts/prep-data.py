@@ -157,6 +157,8 @@ class SourceRecord:
       result.append("Adults")
     if taxonomyItem.CHILDREN_AND_YOUTH:
       result.append("Children and Youth")
+    if taxonomyItem.STUDENTS:
+      result.append("Students")
     return result
 
   def getMhsuGuid(self):
