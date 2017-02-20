@@ -22,6 +22,7 @@
 import csv
 import cgi
 import argparse
+import uuid
 
 #------------------------------------------------------------------------------
 # Constants
@@ -35,7 +36,7 @@ COMPOUND_FIELD_DELIMETER = "|";
 #------------------------------------------------------------------------------
 
 taxonomyItems = {}
-  
+
 #------------------------------------------------------------------------------
 # Classes
 #------------------------------------------------------------------------------
@@ -151,7 +152,7 @@ class SourceRecord:
     if self.SV_TAXONOMY not in taxonomyItems:
       raise Exception("SV_TAXONOMY '"+self.SV_TAXONOMY+"' not mapped")
     taxonomyItem = taxonomyItems[self.SV_TAXONOMY]
-    
+
     result = []
     if taxonomyItem.ADULTS:
       result.append("Adults")
@@ -224,17 +225,18 @@ def formatUrl(s):
   formatted = s
   if not u.startswith("HTTP://") and not u.startswith("HTTPS://"):
     formatted = "http://"+s.strip()
-  
+
   return formatted
 
 #returns a single rolled up record
 def rollUp(sourceRecords):
-  
+
   firstRecord = sourceRecords[0]
 
   #initialize non-rolled-up fields
   trgRecord = TargetRecord()
-  trgRecord.MHSU_GUID = firstRecord.getMhsuGuid()
+  #trgRecord.MHSU_GUID = firstRecord.getMhsuGuid()
+  trgRecord.MHSU_GUID = uuid.uuid1()
   #trgRecord.GPCE_TAXONOMY_CLASSIFICATION = None
   #trgRecord.AUDIENCE = None
   #trgRecord.STUDENTS = None
@@ -372,13 +374,13 @@ csvReader = csv.reader(srcFile)
 lineNum = 0
 for csvRow in csvReader:
   lineNum += 1
-  
+
   #two header rows
   if lineNum <= NUM_HEADER_ROWS:
     continue
 
-  rec = SourceRecord()																	
-  
+  rec = SourceRecord()
+
   rec.SV_TAXONOMY = clean(csvRow[0])
   rec.TAXONOMY_NAME = clean(csvRow[1])
   rec.RG_REFERENCE = clean(csvRow[2])
@@ -417,8 +419,8 @@ for csvRow in csvReader:
     groupedRecords[rec.getMhsuGuid()] = []
   groupedRecords[rec.getMhsuGuid()].append(rec)
   numSrcProcessed += 1
-  
-  
+
+
 # write the data to the output
 # ----------------------------------------------------------------------------
 
@@ -427,7 +429,7 @@ print "Transforming records into target format..."
 numTargetWritten = 0
 numTargetSkipped = 0
 for mhsuGuid in groupedRecords:
-  
+
   recordsInGroup = groupedRecords[mhsuGuid]
   print " rolling up "+str(len(recordsInGroup))+" record(s) with MHSU_GUID '"+mhsuGuid+"'"
   try:
