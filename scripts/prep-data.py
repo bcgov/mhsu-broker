@@ -22,6 +22,7 @@
 import csv
 import cgi
 import argparse
+import re
 import uuid
 
 #------------------------------------------------------------------------------
@@ -296,6 +297,20 @@ def getFooter():
 def getRow(targetRecord):
   return targetRecord.toCsv()
 
+
+def filter_non_ascii(source_string):
+    r1 = re.compile('\xc3\xa1')  # u'\xe1'
+    r2 = re.compile('\x91|\x92')  # windows-1251 left and right single quote
+    source_string = r1.sub(' ', source_string)
+    source_string = r2.sub("'", source_string)
+    return source_string
+
+
+def iso8859_csv_reader(raw_data, filter=filter_non_ascii, dialect=csv.excel, **kwargs):
+    csv_reader = csv.reader(raw_data, dialect=dialect, **kwargs)
+    for row in csv_reader:
+        yield [filter(cell.decode('iso-8859-1').encode('latin1')) for cell in row]
+
 #------------------------------------------------------------------------------
 # Main
 #------------------------------------------------------------------------------
@@ -332,7 +347,8 @@ destFile.write(header)
 # read the taxonomy mapping into a dict
 # ----------------------------------------------------------------------------
 
-mapReader = csv.reader(mapFile)
+# mapReader = csv.reader(mapFile)
+mapReader = iso8859_csv_reader(mapFile)
 lineNum = 0
 for mapRow in mapReader:
   lineNum += 1
@@ -370,7 +386,8 @@ groupedRecords = {}
 print "Reading source records..."
 numSrcSkipped = 0
 numSrcProcessed = 0
-csvReader = csv.reader(srcFile)
+# csvReader = csv.reader(srcFile)
+csvReader = iso8859_csv_reader(srcFile)
 lineNum = 0
 for csvRow in csvReader:
   lineNum += 1
