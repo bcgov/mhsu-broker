@@ -236,7 +236,6 @@ def rollUp(sourceRecords):
 
   #initialize non-rolled-up fields
   trgRecord = TargetRecord()
-  #trgRecord.MHSU_GUID = firstRecord.getMhsuGuid()
   trgRecord.MHSU_GUID = uuid.uuid1()
   #trgRecord.GPCE_TAXONOMY_CLASSIFICATION = None
   #trgRecord.AUDIENCE = None
@@ -347,7 +346,6 @@ destFile.write(header)
 # read the taxonomy mapping into a dict
 # ----------------------------------------------------------------------------
 
-# mapReader = csv.reader(mapFile)
 mapReader = iso8859_csv_reader(mapFile)
 lineNum = 0
 for mapRow in mapReader:
@@ -386,7 +384,6 @@ groupedRecords = {}
 print "Reading source records..."
 numSrcSkipped = 0
 numSrcProcessed = 0
-# csvReader = csv.reader(srcFile)
 csvReader = iso8859_csv_reader(srcFile)
 lineNum = 0
 for csvRow in csvReader:
