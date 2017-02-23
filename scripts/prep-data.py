@@ -22,6 +22,8 @@
 import csv
 import cgi
 import argparse
+import re
+import uuid
 
 #------------------------------------------------------------------------------
 # Constants
@@ -35,7 +37,7 @@ COMPOUND_FIELD_DELIMETER = "|";
 #------------------------------------------------------------------------------
 
 taxonomyItems = {}
-  
+
 #------------------------------------------------------------------------------
 # Classes
 #------------------------------------------------------------------------------
@@ -123,13 +125,13 @@ class SourceRecord:
     self.SV_REFERENCE = None
     self.SV_NAME = None
     self.SV_DESCRIPTION = None
-    self.SL_REFERENCE	= None
-    self.LC_REFERENCE	= None
+    self.SL_REFERENCE = None
+    self.LC_REFERENCE = None
     self.PHONE_NUMBER = None
     self.WEBSITE = None
     self.EMAIL_ADDRESS = None
     self.WHEELCHAIR_ACCESSIBLE = None
-    self.LANGUAGE	= None
+    self.LANGUAGE = None
     self.HOURS = None
     self.STREET_NUMBER = None
     self.STREET_NAME = None
@@ -151,7 +153,7 @@ class SourceRecord:
     if self.SV_TAXONOMY not in taxonomyItems:
       raise Exception("SV_TAXONOMY '"+self.SV_TAXONOMY+"' not mapped")
     taxonomyItem = taxonomyItems[self.SV_TAXONOMY]
-    
+
     result = []
     if taxonomyItem.ADULTS:
       result.append("Adults")
@@ -224,17 +226,17 @@ def formatUrl(s):
   formatted = s
   if not u.startswith("HTTP://") and not u.startswith("HTTPS://"):
     formatted = "http://"+s.strip()
-  
+
   return formatted
 
 #returns a single rolled up record
 def rollUp(sourceRecords):
-  
+
   firstRecord = sourceRecords[0]
 
   #initialize non-rolled-up fields
   trgRecord = TargetRecord()
-  trgRecord.MHSU_GUID = firstRecord.getMhsuGuid()
+  trgRecord.MHSU_GUID = uuid.uuid1()
   #trgRecord.GPCE_TAXONOMY_CLASSIFICATION = None
   #trgRecord.AUDIENCE = None
   #trgRecord.STUDENTS = None
@@ -294,6 +296,20 @@ def getFooter():
 def getRow(targetRecord):
   return targetRecord.toCsv()
 
+
+def filter_non_ascii(source_string):
+    r1 = re.compile('\xc3\xa1')  # u'\xe1'
+    r2 = re.compile('\x91|\x92')  # windows-1251 left and right single quote
+    source_string = r1.sub(' ', source_string)
+    source_string = r2.sub("'", source_string)
+    return source_string
+
+
+def iso8859_csv_reader(raw_data, filter=filter_non_ascii, dialect=csv.excel, **kwargs):
+    csv_reader = csv.reader(raw_data, dialect=dialect, **kwargs)
+    for row in csv_reader:
+        yield [filter(cell.decode('iso-8859-1').encode('latin1')) for cell in row]
+
 #------------------------------------------------------------------------------
 # Main
 #------------------------------------------------------------------------------
@@ -330,7 +346,7 @@ destFile.write(header)
 # read the taxonomy mapping into a dict
 # ----------------------------------------------------------------------------
 
-mapReader = csv.reader(mapFile)
+mapReader = iso8859_csv_reader(mapFile)
 lineNum = 0
 for mapRow in mapReader:
   lineNum += 1
@@ -368,17 +384,17 @@ groupedRecords = {}
 print "Reading source records..."
 numSrcSkipped = 0
 numSrcProcessed = 0
-csvReader = csv.reader(srcFile)
+csvReader = iso8859_csv_reader(srcFile)
 lineNum = 0
 for csvRow in csvReader:
   lineNum += 1
-  
+
   #two header rows
   if lineNum <= NUM_HEADER_ROWS:
     continue
 
-  rec = SourceRecord()																	
-  
+  rec = SourceRecord()
+
   rec.SV_TAXONOMY = clean(csvRow[0])
   rec.TAXONOMY_NAME = clean(csvRow[1])
   rec.RG_REFERENCE = clean(csvRow[2])
@@ -386,13 +402,13 @@ for csvRow in csvReader:
   rec.SV_REFERENCE = clean(csvRow[4])
   rec.SV_NAME = clean(csvRow[5])
   rec.SV_DESCRIPTION = clean(csvRow[6])
-  rec.SL_REFERENCE	= clean(csvRow[7])
-  rec.LC_REFERENCE	= clean(csvRow[8])
+  rec.SL_REFERENCE  = clean(csvRow[7])
+  rec.LC_REFERENCE  = clean(csvRow[8])
   rec.PHONE_NUMBER = clean(csvRow[9])
   rec.WEBSITE = clean(csvRow[10])
   rec.EMAIL_ADDRESS = clean(csvRow[11])
   rec.WHEELCHAIR_ACCESSIBLE = clean(csvRow[12])
-  rec.LANGUAGE	= clean(csvRow[13])
+  rec.LANGUAGE  = clean(csvRow[13])
   rec.HOURS = clean(csvRow[14])
   rec.STREET_NUMBER = clean(csvRow[15])
   rec.STREET_NAME = clean(csvRow[16])
@@ -417,8 +433,8 @@ for csvRow in csvReader:
     groupedRecords[rec.getMhsuGuid()] = []
   groupedRecords[rec.getMhsuGuid()].append(rec)
   numSrcProcessed += 1
-  
-  
+
+
 # write the data to the output
 # ----------------------------------------------------------------------------
 
@@ -427,7 +443,7 @@ print "Transforming records into target format..."
 numTargetWritten = 0
 numTargetSkipped = 0
 for mhsuGuid in groupedRecords:
-  
+
   recordsInGroup = groupedRecords[mhsuGuid]
   print " rolling up "+str(len(recordsInGroup))+" record(s) with MHSU_GUID '"+mhsuGuid+"'"
   try:
