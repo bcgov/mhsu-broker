@@ -10,14 +10,14 @@ var API_QUERY_FIELD = "q";
 var API_FILTER_FIELD = "filters";
 
 var API_SEARCH_ROOT = "https://catalogue.data.gov.bc.ca/api/action/datastore_search";
-var API_SEARCH_QUERY_PARAMS = {"resource_id": "de425d68-a87f-44ce-ab4d-fcb514c04975"};
+var API_SEARCH_QUERY_PARAMS = {"resource_id": "d147b56f-3dd5-44da-b7f9-ce3f6f29aefe"};
 var API_SEARCH_LIMIT_PARAM = "limit";
 var API_SEARCH_DEFAULT_LIMIT = 100;
 var API_SEARCH_RESULT_FIELD = ["result", "records"];
 var API_SEARCH_RESULT_FIELD_DTABLE_SRC = "results";
 
 var API_METADATA_ROOT = "https://catalogue.data.gov.bc.ca/api/action/datastore_search";
-var API_METADATA_QUERY_PARAMS = {"resource_id": "de425d68-a87f-44ce-ab4d-fcb514c04975"};
+var API_METADATA_QUERY_PARAMS = {"resource_id": "d147b56f-3dd5-44da-b7f9-ce3f6f29aefe"};
 var URL_QUERY_PARAM_FIELDS = {"_id": "_id"};
 var API_METADATA_RESULT_FIELDS_FIELD = ["result", "fields"];
 var API_METADATA_RESULT_FIELD_VALUES_FIELD = ["result", "records", 0];
