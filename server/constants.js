@@ -24,15 +24,15 @@ constants.prototype.API_QUERY_FIELD = (process.env.API_QUERY_FIELD) ? process.en
 constants.prototype.API_FILTER_FIELD = (process.env.API_FILTER_FIELD) ? process.env.API_FILTER_FIELD : "filters";
 
 constants.prototype.INDEX_TITLE = (process.env.INDEX_TITLE) ? process.env.INDEX_TITLE : "BCDC Data Broker";
-constants.prototype.API_SEARCH_ROOT = (process.env.API_SEARCH_ROOT) ? process.env.API_SEARCH_ROOT : "https://catalogue.data.gov.bc.ca/api/action/datastore_search";
-constants.prototype.API_SEARCH_QUERY_PARAMS = (process.env.API_SEARCH_QUERY_PARAMS) ? process.env.API_SEARCH_QUERY_PARAMS : {"resource_id": "de425d68-a87f-44ce-ab4d-fcb514c04975"};
+constants.prototype.API_SEARCH_ROOT = (process.env.API_SEARCH_ROOT) ? process.env.API_SEARCH_ROOT : "https://cat.data.gov.bc.ca/api/action/datastore_search";
+constants.prototype.API_SEARCH_QUERY_PARAMS = (process.env.API_SEARCH_QUERY_PARAMS) ? process.env.API_SEARCH_QUERY_PARAMS : {"resource_id": "3edf2c73-9ed0-42c4-81b0-24871aab08e3"};
 constants.prototype.API_SEARCH_LIMIT_PARAM = (process.env.API_SEARCH_LIMIT_PARAM) ? process.env.API_SEARCH_LIMIT_PARAM : "limit";
 constants.prototype.API_SEARCH_DEFAULT_LIMIT = (process.env.API_SEARCH_DEFAULT_LIMIT) ? process.env.API_SEARCH_DEFAULT_LIMIT : 100;
 constants.prototype.API_SEARCH_RESULT_FIELD = (process.env.API_SEARCH_RESULT_FIELD) ? process.env.API_SEARCH_RESULT_FIELD : ["result", "records"];
 constants.prototype.API_SEARCH_RESULT_FIELD_DTABLE_SRC = (process.env.API_SEARCH_RESULT_FIELD_DTABLE_SRC) ? process.env.API_SEARCH_RESULT_FIELD_DTABLE_SRC : "results";
 
-constants.prototype.API_METADATA_ROOT = (process.env.API_METADATA_ROOT) ? process.env.API_METADATA_ROOT : "https://catalogue.data.gov.bc.ca/api/action/datastore_search";
-constants.prototype.API_METADATA_QUERY_PARAMS = (process.env.API_METADATA_QUERY_PARAMS) ? process.env.API_METADATA_QUERY_PARAMS : {"resource_id": "de425d68-a87f-44ce-ab4d-fcb514c04975"};
+constants.prototype.API_METADATA_ROOT = (process.env.API_METADATA_ROOT) ? process.env.API_METADATA_ROOT : "https://cat.data.gov.bc.ca/api/action/datastore_search";
+constants.prototype.API_METADATA_QUERY_PARAMS = (process.env.API_METADATA_QUERY_PARAMS) ? process.env.API_METADATA_QUERY_PARAMS : {"resource_id": "3edf2c73-9ed0-42c4-81b0-24871aab08e3"};
 constants.prototype.URL_QUERY_PARAM_FIELDS = (process.env.URL_QUERY_PARAM_FIELDS) ? process.env.URL_QUERY_PARAM_FIELDS : {"_id": "_id"};
 constants.prototype.API_METADATA_RESULT_FIELDS_FIELD = (process.env.API_METADATA_RESULT_FIELDS_FIELD) ? process.env.API_METADATA_RESULT_FIELDS_FIELD : ["result", "fields"];
 constants.prototype.API_METADATA_RESULT_FIELD_VALUES_FIELD = (process.env.API_METADATA_RESULT_FIELD_VALUES_FIELD) ? process.env.API_METADATA_RESULT_FIELD_VALUES_FIELD : ["result", "records", 0];
