@@ -13,4 +13,4 @@ OR
 node server.js dev
 
 For a demo see:
-http://gsa2bcdc.pathfinder.gov.bc.ca/
+http://mhsu-test.pathfinder.gov.bc.ca/
