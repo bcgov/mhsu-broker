@@ -10,7 +10,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        # with:
-        #   ref: ${{ GITHUB_REF }}
+        with:
+          ref: $GITHUB_SHA
       - run: |
-          echo "$GITHUB_REF"
+          git tag -d latest
+          git tag latest
+          git push origin :latest
+          git push origin latest
