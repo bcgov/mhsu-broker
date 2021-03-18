@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: $GITHUB_SHA
+          ref: ${GITHUB_REF#refs/*/}
       - run: |
           git tag -d latest
           git tag latest
