@@ -10,9 +10,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: ${GITHUB_REF#refs/*/}
+
       - run: |
+          git checkout ${GITHUB_REF#refs/*/}
           git tag -d latest
           git tag latest
           git push origin :latest
