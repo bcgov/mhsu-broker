@@ -1,0 +1,19 @@
+name: Tag Latest
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: $GITHUB_REF
+      - run: |
+          git tag -d latest
+          git tag latest
+          git push origin :latest
+          git push origin latest
