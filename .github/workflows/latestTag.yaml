@@ -12,10 +12,5 @@ jobs:
       - uses: actions/checkout@v2
         # with:
         #   ref: ${{ GITHUB_REF }}
-      # - run: |
-      #     git tag -d latest
-      #     git tag latest
-      #     git push origin :latest
-      #     git push origin latest
-
-        echo: "$GITHUB_REF"
+      - run: |
+          echo "$GITHUB_REF"
