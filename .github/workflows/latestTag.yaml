@@ -11,13 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ GITHUB_REF#refs/*/ }}
+          ref: master
 
       - run: |
           git fetch --unshallow --tags
 
           git tag --list
 
+          git checkout ${GITHUB_REF#refs/*/}
           git tag -d latest
           git tag latest
           git push origin :latest
