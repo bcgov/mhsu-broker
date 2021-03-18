@@ -13,7 +13,8 @@ jobs:
         with:
           ref: master
 
-      - run: |
+      - name: Update latest
+        run: |
           git fetch --unshallow --tags
 
           git tag --list
@@ -23,3 +24,7 @@ jobs:
           git tag latest
           git push origin :latest
           git push origin latest
+
+      - name: Post webhook
+        run: |
+          curl -X POST ${{ secrets.OCP_GENERIC_WEBHOOK }}
